@@ -33,7 +33,7 @@ public class BookDAOImpl implements BookDAO {
 	}
 
 	@Override
-	public List<Book> findOne(String booktext,String selector) throws DataAccessException {
+	public List<Book> findfilter(String booktext,String selector) throws DataAccessException {
 		StringBuffer sb = new StringBuffer();
 		if(selector.equals("0")) {
 			sb.append("select * from book order by book_id");
@@ -56,11 +56,11 @@ public class BookDAOImpl implements BookDAO {
 			sb.append("select * from book order by book_id");
 		}
 		if(selector.equals("1")) {
-			sb.append("select Count(distinct author) from book where lower(author) like"+"'%"+booktext.toLowerCase()
-			+"'");
+			sb.append("select Count(author) from book where lower(author) like"+"'%"+booktext.toLowerCase()
+			+"%'");
 		}
 		if(selector.equals("2")) {
-			sb.append("select Count(distinct isbn) from book where isbn like"+"'%"+booktext+"'");
+			sb.append("select Count(isbn) from book where isbn like"+"'%"+booktext+"%'");
 		}
 		
 		Query query = entityManager.createNativeQuery(sb.toString());

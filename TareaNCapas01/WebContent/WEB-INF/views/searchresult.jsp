@@ -32,10 +32,9 @@
 </style>
 </head>
 <body>
-	<!--<h1>${message}</h1>-->
-	<div class="container">
 	
-	<p>${message}</p>
+	<div class="container">
+	<p style="text-align:center">${message}</p>
 	<table class="table table-bordered table-sm">
 		<thead class="thead-dark">
 		<tr>

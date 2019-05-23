@@ -48,9 +48,17 @@ public class MainController {
 		List<Book> rbook = null;
 		String message="";
 		int counting=0;
+		if(booktext.equals("")) {
+			selectorx="0";
+		}
+		log.info("selectorx= " + selectorx);
 		try {
-			rbook = bookDAO.findOne(booktext,selectorx);
-			counting=bookDAO.countfilter(booktext,selectorx);
+			
+			rbook = bookDAO.findfilter(booktext,selectorx);
+			if(!selectorx.equals("0")){
+				counting=bookDAO.countfilter(booktext,selectorx);	
+			}
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -73,8 +81,8 @@ public class MainController {
 
 		return mav;
 	}
-	@RequestMapping(value = "/formcount", method = RequestMethod.POST)
-	public ModelAndView formCount(@RequestParam String booktext, @RequestParam String selectorx) {
+	@RequestMapping(value = "/formCount", method = RequestMethod.POST)
+	public ModelAndView formCount() {
 		ModelAndView mav = new ModelAndView();
 		List<Book> books = null;
 		int bookscount=0;
@@ -90,7 +98,7 @@ public class MainController {
 		String message="Hay "+ bookscount+" libros en existencia, de "+authorscount+" autores diferentes";
 		mav.addObject("message",message);
 		mav.addObject("books",books);
-		mav.setViewName("main");
+		mav.setViewName("numberresult");
 		return mav;
 	}
 	

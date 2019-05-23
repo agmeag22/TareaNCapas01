@@ -14,19 +14,12 @@
 	flex: display;
 	align-items:center;
 	align-content: center;
-	 justify-content: center;
 	margin-top: 30px;
 	}
     .table-bordered{
     border-radius: 4px;
     }
-	    #wrapper {
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  margin: 10px;
-	}
-	
+    
     
     /*.hiyo{
     width:50%;
@@ -39,33 +32,7 @@
 <body>
 	
 	<div class="container">
-	<div id="wraper2">
-	<p>${message}</p>
-	<form action = "${pageContext.request.contextPath}/formSearch" method="POST">	
-		<div class="col-md-12" style="margin-top:20px;">
-		<div class="row">
-		<div class="col-xs-2"><p style="margin:none;">Buscar por:</p></div>
-		<div class="col-md-2">
-		<select class="custom-select" name="selectorx">
-			<option value="0">Seleccionar</option>
-			<option value="1">Autor</option>
-			<option value="2">ISBN</option>
-		</select>
-		</div>
-		<div class="col-md-6"><input class="form-control hiyo" type="text" name = "booktext" /></div>
-		<div class="col-md-1"><input type = "submit" class="btn btn-dark" value = "BUSCAR"/></div>
-		</div>
-		</div>
-		</div>
-	</form>
-		<div id="wrapper">
-		<form action = "${pageContext.request.contextPath}/formCount" method="POST">	
-		<input type = "submit" class="btn btn-dark" value = "Ver Todos" style="text-align:center;"/>	
-		</form>
-	</div>		
-	
-	
-	
+	<p style="text-align:center;">${message}</p>
 	<table class="table table-bordered table-sm">
 		<thead class="thead-dark">
 		<tr>
